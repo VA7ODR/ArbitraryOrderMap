@@ -32,7 +32,6 @@ The official repository for this library is at https://github.com/VA7ODR/json
 #include <vector>
 #include <memory>
 #include <iostream>
-#include "sdstring.hpp"
 
 template<class keyType, class valueType>
 class arbitrary_order_map
@@ -47,15 +46,6 @@ public:
 	
 	arbitrary_order_map() {}
 
-	// arbitrary_order_map(const std::map<keyType, valueType> &map)
-	// {
-	// 	reserve(map.size());
-	// 	auto e = map.end();
-	// 	for (auto it = map.begin(); it != e; ++it) {
-	// 	   *this[it->first] = it->second;
-	// 	}
-	// }
-	
 	arbitrary_order_map(const std::map<keyType, valueType> &map)
 	{
 		reserve(map.size());
@@ -113,7 +103,6 @@ public:
 
 	void reserve(size_t n)
 	{
-//		data.reserve(n);
 		keys.reserve(n);
 	}
 	
@@ -681,6 +670,7 @@ public:
 		}
 		return insIt;
 	}
+	
 protected:
 	std::UNORDERED_TYPE<keyType, pairType*>		data;
 	std::vector<ptrType> 			keys;

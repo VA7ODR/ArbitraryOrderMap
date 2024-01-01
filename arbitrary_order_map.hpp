@@ -22,9 +22,7 @@ THE SOFTWARE.
 The official repository for this library is at https://github.com/VA7ODR/json
 
 */
-#if !defined _ARBITRARY_ORDER_MAP_
-#define _ARBITRARY_ORDER_MAP_
-
+#pragma once
 #define UNORDERED_TYPE map//unordered_map
 
 #include <map>
@@ -43,8 +41,8 @@ public:
 	typedef typename std::vector<ptrType>::iterator keyIterator;
 	typedef std::pair<keyType, pairType*> dataType;
 	typedef std::pair<keyType, pairType> data2Type;
-	
-	arbitrary_order_map() {}
+
+	arbitrary_order_map() = default;
 
 	arbitrary_order_map(const std::map<keyType, valueType> &map)
 	{
@@ -219,7 +217,7 @@ public:
 			return *this;
 		}
 
-		iterator& operator++(int)
+		iterator operator++(int)
 		{
 			iterator tmp(*this);
 			operator++();
@@ -231,7 +229,7 @@ public:
 			return *this;
 		}
 
-		iterator& operator--(int)
+		iterator operator--(int)
 		{
 			iterator tmp(*this);
 			operator--();
@@ -339,7 +337,7 @@ public:
 			return *this;
 		}
 
-		const_iterator& operator++(int)
+		const_iterator operator++(int)
 		{
 			const_iterator tmp(*this);
 			operator++();
@@ -351,7 +349,7 @@ public:
 			return *this;
 		}
 
-		const_iterator& operator--(int)
+		const_iterator operator--(int)
 		{
 			const_iterator tmp(*this);
 			operator--();
@@ -442,7 +440,7 @@ public:
 			return *this;
 		}
 
-		reverse_iterator& operator++(int)
+		reverse_iterator operator++(int)
 		{
 			reverse_iterator tmp(*this);
 			operator++();
@@ -454,7 +452,7 @@ public:
 			return *this;
 		}
 
-		reverse_iterator& operator--(int)
+		reverse_iterator operator--(int)
 		{
 			reverse_iterator tmp(*this);
 			operator--();
@@ -675,5 +673,3 @@ protected:
 	std::UNORDERED_TYPE<keyType, pairType*>		data;
 	std::vector<ptrType> 			keys;
 };
-
-#endif

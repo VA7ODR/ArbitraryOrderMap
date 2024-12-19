@@ -386,7 +386,7 @@ public:
 		typename std::vector<ptrType>::const_iterator 	it;
 	};
 
-	class reverse_iterator : public std::reverse_iterator<iterator>
+	class reverse_iterator
 	{
 	public:
 		reverse_iterator()
